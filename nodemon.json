@@ -1,6 +1,7 @@
 {
     "ignore": [
         "marketdata.json",
-        "coininfo.json"
+        "coininfo.json",
+        "dataSum.json"
     ] 
 }

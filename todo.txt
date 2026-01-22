@@ -1,0 +1,5 @@
+work on header design and responsiveness => 
+no search box on smaller screens, just the search icon
+
+
+DESIGN LATER.

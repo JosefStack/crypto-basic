@@ -1,0 +1,25 @@
+<div class="table-container">
+    <table border="1">
+    <tr>
+        <th></th>
+        <th>Coin</th>
+        <th>Price</th>
+    </tr> 
+    <% if (locals.coins) { %>
+        
+        <% coins.forEach((coins) => { %>
+            <tr>
+                <td></td>
+                <td><%= coins.name %></td>
+                <td><%= coins.current_price %></td>
+            </tr>
+        <% }); %>
+        
+    
+    
+    
+    <% } %>
+    
+</table>
+</div>
+

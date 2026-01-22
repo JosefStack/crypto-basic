@@ -1,0 +1,31 @@
+#home {
+    width: 94vw;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.main-title {
+    /* outline: 1px solid white; */
+    padding: 50px;
+    width: 100%;
+    height: calc(70vh - 92px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.main-title-text-left {
+    /* outline: 2px solid white; */
+    font-size: 42px;
+    font-weight: 600;
+    width: 40%;
+}
+
+.main-title-image {
+    width: 10%;
+}
+
+.main-title-image > img {
+    width: 100%;
+}

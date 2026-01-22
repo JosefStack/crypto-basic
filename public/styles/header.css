@@ -1,21 +1,28 @@
+.header-container {
+    /* background-color: #323741; */
+    border-bottom: 1px solid white;
+}
+
 .header-wrapper {
     /* outline: 1px solid white; */
     width: 94vw;
     margin: auto;
-    height: 72px;
+    height: 92px;
     display: flex;
     align-items: center;
+
+    
 }
 
 header {
     width: 100%;
     display: flex;
-    /* justify-content: space-between; */
+    justify-content: space-between;
     align-items: center;
 }
 
 .bx {
-    font-size: 40px;
+    font-size: 60px;
 }
 
 .links {
@@ -33,7 +40,7 @@ header {
 }
 
 .search form {
-    outline: 1px solid white;
+    /* outline: 1px solid white; */
     padding: 0px 20px;
     display: flex;
 }
@@ -43,8 +50,6 @@ header {
     border: 1px solid rgb(83, 82, 82);
     padding: 10px 30px;
     font-family: inherit;
-    flex-basis: 600px;
-    flex-grow: 1;
 }
 
 .search input:focus {
