@@ -1,0 +1,6 @@
+{
+    "ignore": [
+        "marketdata.json",
+        "coininfo.json"
+    ] 
+}

@@ -1,0 +1,12 @@
+@import url("header.css");
+@import url("home.css");
+@import url("listings.css");
+@import url("footer.css");
+
+body {
+    background-color: #0d1421;
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-family: "Poppins", sans-serif;
+}
