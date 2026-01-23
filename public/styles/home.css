@@ -70,9 +70,13 @@ a {
     font-size: 14px;
     font-weight: 300;
     color: #727b86;
+    transition: 0.3s;
     /* outline: 1px solid white; */
 }
 
+.main-top-right-listings-header-right:hover {
+    color: #979ca2;
+}
 
 .bx-chevron-right {
     font-size: 21px;
@@ -162,6 +166,9 @@ a {
 
 .main-top-right-listings-header-left-left, .main-top-right-listings-header-left-right {
     color: #727b86;
+    transition: 0.5s;
+    font-size: 15px;
+    font-weight: 600;
 }
 
 .main-top-right-listings-header-left-left:hover {
@@ -180,4 +187,18 @@ a {
 
 .main-top-right-listings-header-left-right.active {
     color: white;
+}
+
+.main-top-right-listings-link-name {
+    font-size: 14px;
+    color: #888f98;
+}
+
+.main-top-right-listings-link-left-right {
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.main-top-right-listings-link-symbol {
+    font-weight: 600;
 }

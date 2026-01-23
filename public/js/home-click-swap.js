@@ -15,7 +15,6 @@ document.addEventListener("DOMContentLoaded", function () {
         ".trending-selection-bar",
     );
     const topSelectionBar = document.querySelector(".top-selection-bar");
-    console.log(trendingSelectionBar);
 
     trendingButton.addEventListener("click", function () {
         if (!trending.classList.contains("active")) {

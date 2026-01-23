@@ -51,7 +51,7 @@ app.get("/", async (req, res) => {
         // })
         trendingCoins = coinData.map(coin => ({
                 id: coin.item.id,
-                symbol: coin.item.symbol,
+                symbol: coin.item.symbol.toUpperCase(),
                 name: coin.item.name,
                 image: coin.item.thumb,
                 current_price: "$"+coin.item.data.price.toFixed(2),
@@ -69,7 +69,7 @@ app.get("/", async (req, res) => {
 
     try {
         const URL = API_URL + MARKET_DATA_ENDPOINT + `?order=market_cap_desc`;
-        console.log(`trending URL: ${URL}`);
+        console.log(`top listings URL: ${URL}`);
 
         const response = await axios.get(URL, config);
         const coinData = response.data;
@@ -83,12 +83,14 @@ app.get("/", async (req, res) => {
 
         priceCoins = coinData.map(coin => ({
             id: coin.id,
-            symbol: coin.symbol, 
+            symbol: coin.symbol.toUpperCase(), 
             name: coin.name,
             image: coin.image, 
-            current_price:"$"+coin.current_price.toFixed(2),
-            price_change_percentage: coin.price_change_percentage_24h.toFixed(2)
+            current_price: "$" + coin.current_price.toFixed(2),
+            price_change_percentage: coin.price_change_percentage_24h,
         }))
+
+
 
 
 

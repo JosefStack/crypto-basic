@@ -93,7 +93,7 @@
                                     </div>
 
                                     <div class="main-top-right-listings-link-change" style="color: <%= coin.price_change_percentage > 0 ? '#2ebd85' : '#f2455c' %>;">
-                                        <%=(coin.price_change_percentage >= 0 ? "+" : "") + coin.price_change_percentage + "%"%>
+                                        <%=(coin.price_change_percentage >= 0 ? "+" : "") + coin.price_change_percentage.toFixed(2) + "%"%>
                                     </div>
 
                                 </a>
