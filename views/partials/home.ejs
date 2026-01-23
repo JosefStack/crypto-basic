@@ -9,7 +9,7 @@
         <div class="main-top-right">
 
 
-            <% if (locals.coins) { %>
+            <% if (locals.trendingCoins) { %>
 
                 <div class="main-top-right-listings">
 
@@ -18,23 +18,23 @@
                         <div class="main-top-right-listings-header">
 
                             <div class="main-top-right-listings-header-left">
-                                <div class="main-top-right-listings-header-left-left">
-                                    <div>Popular</div>
-                                    <div class="selection-bar"></div>
+                                <div class="main-top-right-listings-header-left-left active">
+                                    <div>Trending</div>
+                                    <div class="selection-bar trending-selection-bar active"></div>
                                 </div>
                                 <div class="main-top-right-listings-header-left-right">
-                                    <div>New Listings</div>
-                                    <div class="selection-bar"></div>
+                                    <div>Top Listings</div>
+                                    <div class="selection-bar top-selection-bar"></div>
                                 </div>
                             </div>
                             <a href="" class="main-top-right-listings-header-right">
-                                View All 100+ Coins
+                                <div>View All 100+ Coins</div>
+                                <i class='bx  bx-chevron-right'></i> 
                             </a>
 
                         </div>
-                        <div class="main-top-right-listings-items">
-
-                            <% coins.forEach((coin)=> { %>
+                        <div class="main-top-right-listings-items main-top-right-listings-items-trending active">
+                            <% trendingCoins.forEach((coin)=> { %>  
 
                                 <a href="" class="main-top-right-listings-link-container">
 
@@ -58,18 +58,48 @@
 
                                     </div>
 
-                                    <div class="main-top-right-listings-link-change">
-                                        <%=coin.price_change_percentage %>
+                                    <div class="main-top-right-listings-link-change" style="color: <%= coin.price_change_percentage > 0 ? '#2ebd85' : '#f2455c' %>;">
+                                        <%=(coin.price_change_percentage >= 0 ? "+" : "") + coin.price_change_percentage + "%"%>
                                     </div>
 
                                 </a>
 
                                 <% }) %>
-
-
-
                         </div>
 
+                        <div class="main-top-right-listings-items main-top-right-listings-items-top">
+                            <% priceCoins.forEach((coin)=> { %>
+
+                                <a href="" class="main-top-right-listings-link-container">
+
+                                    <div class="main-top-right-listings-link-left">
+
+                                        <div class="main-top-right-listings-link-left-left">
+                                            <img src="<%= coin.image %>" alt="crypto-icon"
+                                                class="main-top-right-listings-link-icon">
+                                            <div class="main-top-right-listings-link-symbol">
+                                                <%=coin.symbol %>
+                                            </div>
+                                            <div class="main-top-right-listings-link-name">
+                                                <%=coin.name %>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="main-top-right-listings-link-left-right">
+                                            <%=coin.current_price %>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="main-top-right-listings-link-change" style="color: <%= coin.price_change_percentage > 0 ? '#2ebd85' : '#f2455c' %>;">
+                                        <%=(coin.price_change_percentage >= 0 ? "+" : "") + coin.price_change_percentage + "%"%>
+                                    </div>
+
+                                </a>
+
+                                <% }) %>
+                        </div>
 
                     </div>
 
