@@ -86,8 +86,8 @@ app.get("/", async (req, res) => {
             symbol: coin.symbol, 
             name: coin.name,
             image: coin.image, 
-            current_price: coin.current_price,
-            price_change_percentage: coin.price_change_percentage_24h
+            current_price:"$"+coin.current_price.toFixed(2),
+            price_change_percentage: coin.price_change_percentage_24h.toFixed(2)
         }))
 
 
