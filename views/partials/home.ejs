@@ -7,74 +7,81 @@
             Trusted By Millions.
         </div>
         <div class="main-top-right">
-            <div class="main-top-right-listings">
 
-                <% if (locals.coins) { %>
 
-                    <ul class="home-listings-container">
+            <% if (locals.coins) { %>
 
-                        <li class="home-listings-header">
-                            <div class="home-listings-header-left">
-                                <div>
-                                    <span>Popular</span>
+                <div class="main-top-right-listings">
+
+                    <div class="main-top-right-listings-container">
+
+                        <div class="main-top-right-listings-header">
+
+                            <div class="main-top-right-listings-header-left">
+                                <div class="main-top-right-listings-header-left-left">
+                                    <div>Popular</div>
                                     <div class="selection-bar"></div>
                                 </div>
-                                <div>
-                                    <span>New Listing</span>
+                                <div class="main-top-right-listings-header-left-right">
+                                    <div>New Listings</div>
                                     <div class="selection-bar"></div>
                                 </div>
                             </div>
-                            <div class="home-listings-header-right">
-                                <a href="">View All 100+ coins</a>
-                            </div>
+                            <a href="" class="main-top-right-listings-header-right">
+                                View All 100+ Coins
+                            </a>
 
-                        </li>
+                        </div>
+                        <div class="main-top-right-listings-items">
 
-                        <% coins.forEach((coin)=> { %>
-                            <% console.log(coin) %>
-                                <li class="home-listings-item-container">
-                                    <a href="">
-                                        <div class="home-listings-item">
+                            <% coins.forEach((coin)=> { %>
 
-                                            <div class="home-listings-item-left">
-                                                <div class="home-listings-symbol-container">
-                                                    <img src="<%= coin.image %>" alt="">
-                                                    <span>
-                                                        <%= coin.symbol.toUpperCase() %>
-                                                    </span>
-                                                    <span>
-                                                        <%= coin.name %>
-                                                    </span>
-                                                </div>
+                                <a href="" class="main-top-right-listings-link-container">
 
+                                    <div class="main-top-right-listings-link-left">
 
-                                                <span>
-                                                    $<%= coin.current_price.toLocaleString() %>
-                                                </span>
+                                        <div class="main-top-right-listings-link-left-left">
+                                            <img src="<%= coin.image %>" alt="crypto-icon"
+                                                class="main-top-right-listings-link-icon">
+                                            <div class="main-top-right-listings-link-symbol">
+                                                <%=coin.symbol %>
                                             </div>
-
-
-                                            <span
-                                                style="color: <%= coin.price_change_percentage < 0 ? '#f2455c' : '#2ebd85' %>;">
-                                                <% let formatted_price_change=(coin.price_change_percentage>= 0 ? "+" :
-                                                    "") + coin.price_change_percentage.toFixed(2) + "%"%>
-                                                    <%= formatted_price_change %>
-                                            </span>
-
+                                            <div class="main-top-right-listings-link-name">
+                                                <%=coin.name %>
+                                            </div>
                                         </div>
-                                    </a>
-                                </li>
+
+
+                                        <div class="main-top-right-listings-link-left-right">
+                                            <%=coin.current_price %>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="main-top-right-listings-link-change">
+                                        <%=coin.price_change_percentage %>
+                                    </div>
+
+                                </a>
 
                                 <% }) %>
 
-                    </ul>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+                <% } %>
 
 
 
-                    <% } %>
 
-
-            </div>
         </div>
+    </div>
 
 </section>
