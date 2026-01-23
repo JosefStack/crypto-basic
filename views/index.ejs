@@ -20,9 +20,14 @@
 </head>
 <body>
 
+    <div id="shader-bg"></div>
+
     <%- include("partials/header.ejs") %>
     <%- include(`partials/${page}.ejs`) %>
     <%- include("partials/footer.ejs") %>
     
+    <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+    <script src="/js/animated-shader-bg.js"></script>   
+
 </body>
 </html>

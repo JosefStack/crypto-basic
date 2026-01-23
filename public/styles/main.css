@@ -10,3 +10,10 @@ body {
     color: white;
     font-family: "Poppins", sans-serif;
 }
+
+#shader-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: black;
+}

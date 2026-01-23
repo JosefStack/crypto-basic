@@ -9,7 +9,9 @@
         
         <% coins.forEach((coins) => { %>
             <tr>
-                <td></td>
+                <td>
+                    <img src="<%= coins.image %>" alt="">
+                </td>
                 <td><%= coins.name %></td>
                 <td><%= coins.current_price %></td>
             </tr>
