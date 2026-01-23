@@ -34,47 +34,75 @@ const config = {
 
 
 app.get("/", async (req, res) => {
-    const URL = API_URL + TRENDING_ENDPOINT;
-    console.log(URL);
-    let coins;
+    let trendingCoins;
+    let priceCoins;
 
     try {
+        const URL = API_URL + TRENDING_ENDPOINT;
+        console.log(`trending URL: ${URL}`);
+
         const response = await axios.get(URL, config);
         const coinData = response.data.coins;
-        fs.writeFile("testdata.json", JSON.stringify(coinData), (err) => {
-            if (err) throw err;
-            else {
-                console.log("data written.")
-            }
-        })
-
-
-
-        coins = coinData.map(coin => ({
+        // fs.writeFile("testdata.json", JSON.stringify(coinData), (err) => {
+        //     if (err) throw err;
+        //     else {
+        //         console.log("data written.")
+        //     }
+        // })
+        trendingCoins = coinData.map(coin => ({
                 id: coin.item.id,
                 symbol: coin.item.symbol,
                 name: coin.item.name,
                 image: coin.item.thumb,
-                current_price: coin.item.data.price,
+                current_price: "$"+coin.item.data.price.toFixed(2),
                 // market_cap_rank: coin.item.market_cap_rank,
                 // high_24h: coin.item.high_24h,
                 // low_24h: coin.item.low_24h,
                 // price_change_24h: coin.item.price_change_24h,
-                price_change_percentage: coin.item.data.price_change_percentage_24h.usd,
+                price_change_percentage: coin.item.data.price_change_percentage_24h.usd.toFixed(2),
                 // last_updated: coin.item.last_updated
             }));
-        
-        
     }
     catch (error) {
-        console.log(`Request failed: ${JSON.stringify(error.response.data)}`)
+        console.log(`sort by trending request failed: ${JSON.stringify(error.response.data)}`);
+    }
+
+    try {
+        const URL = API_URL + MARKET_DATA_ENDPOINT + `?order=market_cap_desc`;
+        console.log(`trending URL: ${URL}`);
+
+        const response = await axios.get(URL, config);
+        const coinData = response.data;
+
+        // fs.writeFile("testdata.json", JSON.stringify(coinData), (err) => {
+        //     if (err) throw err;
+        //     else {
+        //         console.log("data written.")
+        //     }
+        // })
+
+        priceCoins = coinData.map(coin => ({
+            id: coin.id,
+            symbol: coin.symbol, 
+            name: coin.name,
+            image: coin.image, 
+            current_price: coin.current_price,
+            price_change_percentage: coin.price_change_percentage_24h
+        }))
+
+
+
+    }
+    catch (error) {
+        console.log(`sort by price request failed: ${JSON.stringify(error.response.data)}`);
     }
 
 
 
     res.render("index.ejs", {
         page: "home",
-        coins: coins.slice(0, 5),
+        trendingCoins: trendingCoins.slice(0, 5),   
+        priceCoins: priceCoins.slice(0, 5)
     });
 })
 
