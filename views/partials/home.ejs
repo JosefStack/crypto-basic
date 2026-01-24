@@ -116,17 +116,24 @@
 
                         <div class="main-top-right-news">
 
-                            <div class="main-top-right-listings-container">
-                                
-                                <% news.forEach((news) => { %>
+                            <div class="main-top-right-news-container">
 
-                                    <div class="news-item">
+                                <div class="news-header">
+                                    News
+                                </div>
+
+
+
+
+                                <div class="news-item">
+                                    <% news.forEach((news)=> { %>
                                         <a href="<%= news.link %>">
                                             <%= news.title %>
-                                        </a> 
-                                    </div>
+                                        </a>
+                                        <% }) %>
+                                </div>
 
-                                <% }) %>
+
 
 
                             </div>
