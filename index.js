@@ -42,7 +42,7 @@ app.get("/", async (req, res) => {
 
     try {
         const URL = API_URL + TRENDING_ENDPOINT;
-        console.log(`trending URL: ${URL}`);
+        // console.log(`trending URL: ${URL}`);
 
         const response = await axios.get(URL, config);
         const coinData = response.data.coins;
@@ -72,7 +72,7 @@ app.get("/", async (req, res) => {
 
     try {
         const URL = API_URL + MARKET_DATA_ENDPOINT + `?order=market_cap_desc`;
-        console.log(`top listings URL: ${URL}`);
+        // console.log(`top listings URL: ${URL}`);
 
         const response = await axios.get(URL, config);
         const coinData = response.data;
@@ -104,7 +104,7 @@ app.get("/", async (req, res) => {
 
 
     try {
-        console.log(NEWS_API_URL + "/api/breaking")
+        // console.log(NEWS_API_URL + "/api/breaking")
         const response = await axios.get(NEWS_API_URL + "/breaking");
         
         const newsData = response.data.articles;
@@ -138,7 +138,7 @@ app.get("/listings", async (req, res) => {
 
     try {
         const URL = API_URL + MARKET_DATA_ENDPOINT + `?order=market_cap_desc`;
-        console.log(`top listings URL: ${URL}`);
+        // console.log(`top listings URL: ${URL}`);
 
         const response = await axios.get(URL, config);
         const coinData = response.data;

@@ -3,7 +3,7 @@
     <div class="listings-grid-container">
 
         <% listings.forEach((listing) => { %> 
-            
+            <a href="">
             <div class="listings-grid-item">
 
                 <div class="listings-grid-item-left">
@@ -11,8 +11,9 @@
                     <div class="listing-name"><%= listing.name %></div>
                     <div class="listing-price"><%= listing.current_price %></div>
                     <div class="listing-stats">
-                        <div class="listing-price-change"><%= listing.price_change %></div>
-                        <div class="listing-price-change-percent"><%= listing.price_change_percentage%></div>
+                        
+                        <div class="listing-price-change" style="color: <%= listing.price_change < 0 ? 'red' : 'green' %>;"><%= Number(listing.price_change).toFixed(2) %></div>
+                        <div class="listing-price-change-percent"><%= Number(listing.price_change_percentage).toFixed(2) %>%</div>
                     </div>
                 </div>
                 
@@ -20,11 +21,11 @@
                     <div class="listing-image">
                         <img src="<%= listing.image %>" alt="">
                     </div>
-                    <div class="listing-rank"><%= listing.rank %></div>
+                    <div class="listing-rank">#<%= (listings.indexOf(listing) + 1) %></div>
                 </div>
 
             </div>
-            
+            </a>
             
             
             <% }) %>

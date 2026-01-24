@@ -1,4 +1,7 @@
 .listings-grid-wrapper {
+
+    /* outline: 1px solid white; */
+
     width: 100%;
     max-width: 1300px;
 
@@ -7,26 +10,61 @@
 
 
 .listings-grid-container {
+    /* outline: 1px solid white; */
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    
 }
 
 .listings-grid-item {
-    padding: 10px;
+    /* outline: 1px solid white; */
+    padding: 20px;
     display: flex;
+    justify-content: space-between;
+    background-color: #0b101d;
+    border-radius: 20px;
+
+    -webkit-box-shadow: 0px 0px 31px -12px rgba(227,227,227,0.25), 0px 0px 27px -20px rgba(255,181,0,0.15); 
+    box-shadow: 0px 0px 31px -12px rgba(227,227,227,0.25), 0px 0px 27px -20px rgba(255,181,0,0.15);
+
+    transition: 0.3s;
+}
+
+.listings-grid-item:hover {
+    transform: scale(1.017);
 }
 
 .listings-grid-item-left {
+    /* outline: 1px solid red; */
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
 .listings-grid-item-right {
+    /* outline: 1px solid green; */
     display: flex;
     flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    justify-content: center;
 }
 
 .listing-image img {
     width: 70px;
+}
+
+.listing-stats {
+    display: flex;
+    gap: 10px;
+}
+
+.listing-symbol {
+    font-weight: 700;
+    font-size: 28px;
+}
+
+.listing-name {
+    color: #888f98;
 }
