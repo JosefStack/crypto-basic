@@ -1,5 +1,6 @@
 .header-container {
     /* background-color: #323741; */
+    /* outline: 1px solid red; */
 }
 
 .header-wrapper {
@@ -9,6 +10,7 @@
     height: 92px;
     display: flex;
     align-items: center;
+    justify-content: center;
 
     
 }
@@ -53,4 +55,16 @@ header {
 
 .search input:focus {
     outline: none;
+}
+
+@media(max-width:768px) {
+    .search form {
+        display: none;
+    }
+
+    .search input {
+        display: none;
+        padding: 0;
+    }
+
 }
