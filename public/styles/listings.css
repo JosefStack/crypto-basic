@@ -1,10 +1,32 @@
-.table-container {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
+.listings-grid-wrapper {
+    width: 100%;
+    max-width: 1300px;
+
+    padding: 20px;
 }
 
-td > img {
-    /* outline: 1px solid white; */
-    width: 15%;
+
+.listings-grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.listings-grid-item {
+    padding: 10px;
+    display: flex;
+}
+
+.listings-grid-item-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.listings-grid-item-right {
+    display: flex;
+    flex-direction: column;
+}
+
+.listing-image img {
+    width: 70px;
 }

@@ -132,10 +132,48 @@ app.get("/home", (req, res) => {
     res.redirect("/");
 })
 
-app.get("/listings", (req, res) => {
+app.get("/listings", async (req, res) => {
+
+    let listings;
+
+    try {
+        const URL = API_URL + MARKET_DATA_ENDPOINT + `?order=market_cap_desc`;
+        console.log(`top listings URL: ${URL}`);
+
+        const response = await axios.get(URL, config);
+        const coinData = response.data;
+
+        // fs.writeFile("testdata.json", JSON.stringify(coinData), (err) => {
+        //     if (err) throw err;
+        //     else {
+        //         console.log("data written.")
+        //     }
+        // })
+
+        listings = coinData.map(coin => ({
+            id: coin.id,
+            symbol: coin.symbol.toUpperCase(), 
+            name: coin.name,
+            image: coin.image, 
+            current_price: "$" + coin.current_price.toFixed(2),
+            price_change: coin.price_change_24h,
+            price_change_percentage: coin.price_change_percentage_24h,
+        }))
+
+
+
+
+
+    }
+    catch (error) {
+        console.log(`sort by price request failed: ${JSON.stringify(error.response.data)}`);
+    }
+
+
+
     res.render("index.ejs", {
         page: "listings",
-        coins: coins,
+        listings: listings,
     })
 })
 

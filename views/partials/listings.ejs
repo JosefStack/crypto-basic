@@ -1,27 +1,35 @@
-<div class="table-container">
-    <table border="1">
-    <tr>
-        <th></th>
-        <th>Coin</th>
-        <th>Price</th>
-    </tr> 
-    <% if (locals.coins) { %>
-        
-        <% coins.forEach((coins) => { %>
-            <tr>
-                <td>
-                    <img src="<%= coins.image %>" alt="">
-                </td>
-                <td><%= coins.name %></td>
-                <td><%= coins.current_price %></td>
-            </tr>
-        <% }); %>
-        
-    
-    
-    
-    <% } %>
-    
-</table>
-</div>
+<div class="listings-grid-wrapper">
 
+    <div class="listings-grid-container">
+
+        <% listings.forEach((listing) => { %> 
+            
+            <div class="listings-grid-item">
+
+                <div class="listings-grid-item-left">
+                    <div class="listing-symbol"><%= listing.symbol %></div>
+                    <div class="listing-name"><%= listing.name %></div>
+                    <div class="listing-price"><%= listing.current_price %></div>
+                    <div class="listing-stats">
+                        <div class="listing-price-change"><%= listing.price_change %></div>
+                        <div class="listing-price-change-percent"><%= listing.price_change_percentage%></div>
+                    </div>
+                </div>
+                
+                <div class="listings-grid-item-right">
+                    <div class="listing-image">
+                        <img src="<%= listing.image %>" alt="">
+                    </div>
+                    <div class="listing-rank"><%= listing.rank %></div>
+                </div>
+
+            </div>
+            
+            
+            
+            <% }) %>
+
+
+    </div>
+
+</div>
