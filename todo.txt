@@ -5,7 +5,7 @@ no search box on smaller screens, just the search icon
 => add a news listings .. copy coins listings and change content
 => find an api which provides news.. the previous one does
 
-=> try adding a box-shadow to the listings tab? 
+=> try adding a box-shadow to the listings tab? - tried but shadows arent with the current background.
 
 => complete the home page
 => work on coin cards, and coin listings page..

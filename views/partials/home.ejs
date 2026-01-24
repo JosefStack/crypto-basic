@@ -29,12 +29,12 @@
                             </div>
                             <a href="" class="main-top-right-listings-header-right">
                                 <div>View All 100+ Coins</div>
-                                <i class='bx  bx-chevron-right'></i> 
+                                <i class='bx  bx-chevron-right'></i>
                             </a>
 
                         </div>
                         <div class="main-top-right-listings-items main-top-right-listings-items-trending active">
-                            <% trendingCoins.forEach((coin)=> { %>  
+                            <% trendingCoins.forEach((coin)=> { %>
 
                                 <a href="" class="main-top-right-listings-link-container">
 
@@ -58,8 +58,10 @@
 
                                     </div>
 
-                                    <div class="main-top-right-listings-link-change" style="color: <%= coin.price_change_percentage > 0 ? '#2ebd85' : '#f2455c' %>;">
-                                        <%=(coin.price_change_percentage >= 0 ? "+" : "") + coin.price_change_percentage + "%"%>
+                                    <div class="main-top-right-listings-link-change"
+                                        style="color: <%= coin.price_change_percentage > 0 ? '#2ebd85' : '#f2455c' %>;">
+                                        <%=(coin.price_change_percentage>= 0 ? "+" : "") + coin.price_change_percentage
+                                            + "%"%>
                                     </div>
 
                                 </a>
@@ -92,8 +94,10 @@
 
                                     </div>
 
-                                    <div class="main-top-right-listings-link-change" style="color: <%= coin.price_change_percentage > 0 ? '#2ebd85' : '#f2455c' %>;">
-                                        <%=(coin.price_change_percentage >= 0 ? "+" : "") + coin.price_change_percentage.toFixed(2) + "%"%>
+                                    <div class="main-top-right-listings-link-change"
+                                        style="color: <%= coin.price_change_percentage > 0 ? '#2ebd85' : '#f2455c' %>;">
+                                        <%=(coin.price_change_percentage>= 0 ? "+" : "") +
+                                            coin.price_change_percentage.toFixed(2) + "%"%>
                                     </div>
 
                                 </a>
@@ -107,6 +111,30 @@
                 </div>
 
                 <% } %>
+
+                    <% if (locals.news) { %>
+
+                        <div class="main-top-right-news">
+
+                            <div class="main-top-right-listings-container">
+                                
+                                <% news.forEach((news) => { %>
+
+                                    <div class="news-item">
+                                        <a href="<%= news.link %>">
+                                            <%= news.title %>
+                                        </a> 
+                                    </div>
+
+                                <% }) %>
+
+
+                            </div>
+
+                        </div>
+
+
+                        <% } %>
 
 
 

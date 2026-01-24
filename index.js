@@ -22,6 +22,8 @@ const TRENDING_ENDPOINT = "search/trending";
 const API_KEY = "CG-VbxmU8iAp28HBYTRGfi6UN3g";
 
 
+const NEWS_API_URL = "https://free-crypto-news.vercel.app/api";
+
 const config = {
     headers: {
         "x-cg-demo-api-key": API_KEY
@@ -36,6 +38,7 @@ const config = {
 app.get("/", async (req, res) => {
     let trendingCoins;
     let priceCoins;
+    let formattedNews;
 
     try {
         const URL = API_URL + TRENDING_ENDPOINT;
@@ -100,11 +103,28 @@ app.get("/", async (req, res) => {
     }
 
 
+    try {
+        console.log(NEWS_API_URL + "/api/breaking")
+        const response = await axios.get(NEWS_API_URL + "/breaking");
+        
+        const newsData = response.data.articles;
+        formattedNews = newsData.map(news => ({
+            title: news.title,
+            link: news.link
+        }))
+
+    }
+    catch (error) {
+        console.log(`news request failed: ${error.reponse.data}`);
+    }
+
+
 
     res.render("index.ejs", {
         page: "home",
         trendingCoins: trendingCoins.slice(0, 5),   
-        priceCoins: priceCoins.slice(0, 5)
+        priceCoins: priceCoins.slice(0, 5),
+        news: formattedNews.slice(0, 3)
     });
 })
 
