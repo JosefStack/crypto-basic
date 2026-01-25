@@ -38,7 +38,7 @@ const config = {
 app.get("/", async (req, res) => {
     let trendingCoins;
     let priceCoins;
-    let formattedNews;
+    let formattedNews = [ {title:"Unable to fetch news at the moment.", link: ""} ];
 
     try {
         const URL = API_URL + TRENDING_ENDPOINT;
@@ -115,7 +115,7 @@ app.get("/", async (req, res) => {
 
     }
     catch (error) {
-        console.log(`news request failed: ${error.reponse.data}`);
+        console.log(`news request failed: ${error.response.data}`);
     }
 
 
