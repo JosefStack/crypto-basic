@@ -68,3 +68,48 @@
 .listing-name {
     color: #888f98;
 }
+
+
+.bx-caret {
+    font-size: 13px;
+}
+
+.bx-caret-down {
+    color: #f2455c;
+}
+
+.bx-caret-up {
+    color: #2ebd85;
+}
+
+.listing-stats > div {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+
+.listing-rank {
+    font-weight: 700;
+}
+
+.listing-price {
+    font-weight: 600;
+}
+
+@media(max-width:1280px) {
+    .listings-grid-container {
+        grid-template-columns: repeat(3, 1fr);   
+    }
+}
+
+@media(max-width:768px) {
+    .listings-grid-container {
+        grid-template-columns: 1fr 1fr;   
+    }
+}
+
+@media(max-width:560px) {
+    .listings-grid-container {
+        grid-template-columns: 1fr;   
+    }
+}

@@ -1,0 +1,10 @@
+<span>
+                            <i class='bx bx-caret <%= listing.price_change > 0 ? "bx-caret-up" : "bx-caret-down" %>'></i> 
+                        </span>
+                        <% let price_change = (listing.price_change) >= 0 ? "+" + Number(listing.price_change).toFixed(2) : "" + Number(listing.price_change).toFixed(2) %> 
+                        <div class="listing-price-change" style="color: <%= listing.price_change <= 0 ? '#f2455c' : '#2ebd85' %>;"><%= Number(listing.price_change).toFixed(2) %></div>
+                        <span>
+                            <i class='bx bx-caret <%= listing.price_change > 0 ? "bx-caret-up" : "bx-caret-down" %>'></i> 
+                        </span>
+                        <% let price_change_percent = (listing.price_change_percentage) >= 0 ? "+" + Number(listing.price_change_percentage).toFixed(2) : "" + Number(listing.price_change_percentage).toFixed(2) %> 
+                        <div class="listing-price-change-percent"  style="color: <%= listing.price_change <= 0 ? '#f2455c' : '#2ebd85' %>;"><%= price_change_percent %>%</div>

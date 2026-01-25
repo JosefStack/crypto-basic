@@ -2,32 +2,62 @@
 
     <div class="listings-grid-container">
 
-        <% listings.forEach((listing) => { %> 
+        <% listings.forEach((listing)=> { %>
             <a href="">
-            <div class="listings-grid-item">
+                <div class="listings-grid-item">
 
-                <div class="listings-grid-item-left">
-                    <div class="listing-symbol"><%= listing.symbol %></div>
-                    <div class="listing-name"><%= listing.name %></div>
-                    <div class="listing-price"><%= listing.current_price %></div>
-                    <div class="listing-stats">
-                        
-                        <div class="listing-price-change" style="color: <%= listing.price_change < 0 ? 'red' : 'green' %>;"><%= Number(listing.price_change).toFixed(2) %></div>
-                        <div class="listing-price-change-percent"><%= Number(listing.price_change_percentage).toFixed(2) %>%</div>
-                    </div>
-                </div>
-                
-                <div class="listings-grid-item-right">
-                    <div class="listing-image">
-                        <img src="<%= listing.image %>" alt="">
-                    </div>
-                    <div class="listing-rank">#<%= (listings.indexOf(listing) + 1) %></div>
-                </div>
+                    <div class="listings-grid-item-left">
+                        <div class="listing-symbol">
+                            <%= listing.symbol %>
+                        </div>
+                        <div class="listing-name">
+                            <%= listing.name %>
+                        </div>
+                        <div class="listing-price">
+                            <%= listing.current_price %>
+                        </div>
+                        <div class="listing-stats">
 
-            </div>
+
+                            <div>
+                                <span>
+                                    <i
+                                        class='bx bx-caret <%= listing.price_change > 0 ? "bx-caret-up" : "bx-caret-down" %>'></i>
+                                </span>
+                                <div class="listing-price-change"
+                                    style="color: <%= listing.price_change <= 0 ? '#f2455c' : '#2ebd85' %>;">
+                                    <%= Math.abs(Number(listing.price_change).toFixed(2)) %>
+                                </div>
+                            </div>
+
+                            <div>
+                                <span>
+                                    <i
+                                        class='bx bx-caret <%= listing.price_change > 0 ? "bx-caret-up" : "bx-caret-down" %>'></i>
+                                </span>
+                                <div class="listing-price-change-percent"
+                                    style="color: <%= listing.price_change_percentage <= 0 ? '#f2455c' : '#2ebd85' %>;">
+                                    <%= Math.abs(Number(listing.price_change_percentage).toFixed(2)) %>%
+                                </div>
+                            </div>
+
+
+
+                        </div>
+                    </div>
+
+                    <div class="listings-grid-item-right">
+                        <div class="listing-image">
+                            <img src="<%= listing.image %>" alt="">
+                        </div>
+                        <div class="listing-rank">#<%= (listings.indexOf(listing) + 1) %>
+                        </div>
+                    </div>
+
+                </div>
             </a>
-            
-            
+
+
             <% }) %>
 
 
